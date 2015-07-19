@@ -1,0 +1,29 @@
+
+= CREDITS.txt crytal-lua
+
+
+== authors
+
+John Mettraux  http://jmettraux.lambda.io
+Alain Hoang  http://blogs.law.harvard.edu/hoanga/
+Scott Persinger  https://github.com/scottpersinger
+Pine Mizune  https://github.com/pine613/crystal-lua
+
+
+== contributors
+
+Christopher Saunders  https://github.com/csaunders
+Gian Perrone  https://github.com/quidrex
+Matthew Nielsen  https://github.com/xunker
+Nathanael Jones  https://github.com/nathanaeljones
+
+
+== feedback
+
+Stas Ukolov  https://github.com/ukoloff
+
+
+== inspiration
+
+  http://rubyluabridge.rubyforge.org/
+
