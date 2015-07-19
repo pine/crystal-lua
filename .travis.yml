@@ -1,0 +1,10 @@
+sudo: required
+language: crystal
+
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install liblua5.1-0-dev -y
+
+notifications:
+  slack:
+    - secure: "htpzdNwaEKEJ9B5PMKpG1eDxCRDCOa7uoinwUqjeKg02dPn6+WpPz10p2g96A2zv01f/IKn8pAE+MqWAnBA6Jr1PtMC6MR7uJuM5bTFxT7/HWpwblD2yqc32d/J8pESi7WaHv1Podmh84h5oKclt0z3UdBqbIXoRcTvNhhszRJu1AhK4TsndATLeJO9J62cn11FBznj+hKmdVTXwfNkWCjOo5slndvWjFJMriLHVI7H7J8qIrSR1kAMG37uIvYZ+B0o15t88Zcc4Be7HQyUCNjrlPjY8ldw+S5zjtcSx+E+/PTzPSzgKg1DVClKf8/v6N2QpQZGUYuSZfCoZBsX+vNBs8rIaJ5ItMEQljbD6Y4c/gqWfny24M0vbiDcGR4dxcKkBtOPOgjLeTbJZe3bEJiclnumP7Qjzn/EXqfbL9WNqSR3NU6taiOjLLBdaOJjz7St5SoiK5BCWEkQkJBXsRfcZtZw4aghERgNHqM4X6EYZDMf1d2q3/D9yUMCcL4uheRI6fl4MuekmUVhT5T0doSE6ig+xm+Z4IhDnHdBzzQMfC6XXynt1/dKv9K30Vbz7kSbIKxv2oMd5RBkdvCvygl1me/a+UwLJGkGd0Btm9+4IVEvhMm1mu43NVZ0vA10lrrLBk3W5zyMDf5rnxn37+hMY5vOIJ7u00CzuoFCDWDk="
