@@ -12,6 +12,7 @@ lib LibLua51
   fun luaL_unref(s : State, t : Int32, ref : Int32) : Void
 
   fun lua_call(s : State, nargs : Int32, nresults : Int32) : Void
+  fun lua_close(s : State) : Void
   fun lua_gettable(s : State, index : Int32) : Void
   fun lua_gettop(s : State) : Int32
   fun lua_next(s : State, index : Int32) : Int32

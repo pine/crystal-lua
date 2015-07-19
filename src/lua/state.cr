@@ -31,6 +31,7 @@ module Lua
     def initialize(include_libs = true)
       @pointer = LibLua51.luaL_newstate
       @error_handler = 0
+      @closed = false
       open_libraries(include_libs)
     end
 
@@ -99,6 +100,17 @@ module Lua
       if libs == true
         LibLua51.luaL_openlibs(@pointer)
       end
+    end
+
+    # Closes the state.
+    #
+    # It's probably a good idea (mem leaks) to close a Lua state once you're
+    # done with it.
+    #
+    def close
+      raise "State already closed" if @closed
+      LibLua51.lua_close(@pointer)
+      @closed = true
     end
   end
 end
