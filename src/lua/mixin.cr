@@ -24,9 +24,7 @@
 #++
 
 module Lua
-  alias LuaPrimitiveType = Nil | Bool | String |
-                           Int8 | UInt8 | Int16 | UInt16 | Int32 | UInt32 |
-                           Float32 | Float64
+  alias LuaPrimitiveType = Nil | Bool | String | LibLua51::Number
 
   module StateMixin
     LUA_GLOBALSINDEX = -10002
@@ -99,7 +97,7 @@ module Lua
       type = LibLua51.lua_type(@pointer, pos)
       tname = String.new(LibLua51.lua_typename(@pointer, type))
 
-      [ type, tname ]
+      { type, tname }
     end
 
     # Given a Ruby instance, will attempt to push it on the Lua stack.
