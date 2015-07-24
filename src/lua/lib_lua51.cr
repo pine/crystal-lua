@@ -13,6 +13,7 @@ lib LibLua51
 
   fun lua_call(s : State, nargs : Int32, nresults : Int32) : Void
   fun lua_close(s : State) : Void
+  fun lua_getfield(s : State, idx : Int32, k : UInt8*) : Void
   fun lua_gettable(s : State, index : Int32) : Void
   fun lua_gettop(s : State) : Int32
   fun lua_next(s : State, index : Int32) : Int32

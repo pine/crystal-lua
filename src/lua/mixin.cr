@@ -152,5 +152,11 @@ module Lua
     def stack_load_ref(ref)
       LibLua51.lua_rawgeti(@pointer, LUA_REGISTRYINDEX, @ref)
     end
+
+    # Loads a Lua global value on top of the stack
+    #
+    def stack_load_global(name)
+      LibLua51.lua_getfield(@pointer, LUA_GLOBALSINDEX, name)
+    end
   end
 end

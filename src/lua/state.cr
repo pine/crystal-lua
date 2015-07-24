@@ -35,8 +35,19 @@ module Lua
       open_libraries(include_libs)
     end
 
+    # Evaluates a piece (string) of Lua code within the state.
+    #
     def eval(s, bndng=nil, filename=nil, lineno=nil)
       loadstring_and_call(s, bndng, filename, lineno)
+    end
+
+    # Returns a value set at the 'global' level in the state.
+    #
+    #   state.eval('a = 1 + 2')
+    #   puts state['a'] # => "3.0"
+    #
+    def [](k)
+      k.index('.') ? self.eval("return #{k}") : get_global(k)
     end
 
     # This method holds the 'eval' mechanism.
@@ -52,7 +63,6 @@ module Lua
       pcall(bottom, 0, bndng, filename, lineno) # arg_count is set to 0
     end
 
-
     # This method will raise an error with err > 0, else it will immediately
     # return.
     #
@@ -65,6 +75,14 @@ module Lua
       raise LuaError.new(kind, err, s, bndng, filename, lineno)
     end
 
+    # Given the name of a Lua global variable, will return its value (or nil
+    # if there is nothing bound under that name).
+    #
+    def get_global(name)
+
+      stack_load_global(name)
+      stack_pop
+    end
 
     # Returns the result of a function call or a coroutine.resume().
     #
