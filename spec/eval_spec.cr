@@ -95,5 +95,26 @@ describe Lua::State do
 
       s.close
     end
+
+    it "accepts a filename and a lineno optional arguments" do
+      le :: Lua::LuaError
+
+      s = Lua::State.new
+
+      begin
+        s.eval("error(77)", nil, "/nada/virtual.lua", 63)
+      rescue e : Lua::LuaError
+        le = e
+      end
+
+      le.kind.should eq("eval:pcall")
+      le.msg.should eq("[string \"/nada/virtual.lua:63\"]:1: 77")
+      le.errcode.should eq(2)
+
+      le.filename.should eq("/nada/virtual.lua")
+      le.lineno.should eq(63)
+
+      s.close
+    end
   end
 end
