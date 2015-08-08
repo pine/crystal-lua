@@ -6,6 +6,7 @@ env:
     - PATH=$HOME/.crenv/bin:$PATH
   matrix:
     - CRYSTAL_VERSION=0.7.4
+    - CRYSTAL_VERSION=0.7.5
 
 addons:
   apt:
